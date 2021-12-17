@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem;
+}
+
 .centred {
   position: fixed; /* or absolute */
   top: 50%;
@@ -16,4 +24,23 @@
   display: inline-block;
   font-size: 16px;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.block--inline {
+  display: inline-block;
+  width: calc(50% - 2rem);
+  overflow: auto;
+  margin: 1rem;
+  padding: .75rem;
+  border: 2px solid grey;
+  transition: transform .2s;
+  cursor: pointer;
+}
+
+.block--inline:hover {
+  transform: translateY(-4px)
+}
+
+.margin--none {
+  margin: 0
 }

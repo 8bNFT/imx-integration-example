@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Marketplace from './Marketplace';
 import Inventory from './Inventory';
 import Bridging from './Bridging';
+import { ethers } from 'ethers';
 require('dotenv').config();
 
 const App = () => {
@@ -68,6 +69,7 @@ const App = () => {
         Active wallet: {wallet}
       </div>
       <div>
+        ETH balance (in ether): {balance?.balance && ethers.utils.formatEther(balance?.balance.toString())}<br/>
         ETH balance (in wei): {balance?.balance?.toString()}
       </div>
       <button onClick={() => setTab('marketplace')}>Marketplace</button>

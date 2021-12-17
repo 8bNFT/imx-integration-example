@@ -98,8 +98,8 @@ const Bridging = ({client, link, wallet}: BridgingProps) => {
   return (
     <div>
       <div>
-        ETH:
-        <br/><br/>
+        <h3 className="margin--none">ETH:</h3>
+        <br/>
         <div>
           Deposit ETH:
           <br/>
@@ -128,8 +128,8 @@ const Bridging = ({client, link, wallet}: BridgingProps) => {
       </div>
       <br/>
       <div>
-        ERC721:
-        <br/><br/>
+        <h3 className="margin--none">ERC721:</h3>
+        <br/>
         <div>
           Deposit NFT:
           <br/>

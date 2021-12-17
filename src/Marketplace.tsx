@@ -16,7 +16,7 @@ const Marketplace = ({client, link}: MarketplaceProps) => {
   }, [])
 
   async function load(): Promise<void> {
-    setMarketplace(await client.getOrders({status: ImmutableOrderStatus.active, user: '0xc120a52ad90bb926bafcdfc9161740dcf4a2cea1'}))
+    setMarketplace(await client.getOrders({status: ImmutableOrderStatus.active}))
   };
 
   // buy an asset
@@ -29,7 +29,7 @@ const Marketplace = ({client, link}: MarketplaceProps) => {
   return (
     <div>
       <div>
-        Buy asset:
+        <h3 className="margin--none">Buy asset:</h3>
         <br/>
         <label>
           Order ID:
@@ -39,9 +39,16 @@ const Marketplace = ({client, link}: MarketplaceProps) => {
       </div>
       <br/><br/><br/>
       <div>
-        Marketplace (active sell orders):
+      <h3 className="margin--none">Marketplace (active sell orders):</h3>
         <br/>
-        {JSON.stringify(marketplace.result)}
+        {/* {JSON.stringify(marketplace.result)} */}
+        {
+          marketplace.result && marketplace.result.map(asset=>{
+            return <pre key={asset.order_id} className="block--inline" onClick={()=>setBuyOrderId(asset.order_id.toString())}>
+              {JSON.stringify(asset, null, 4)}
+            </pre>
+          })
+        }
       </div>
     </div>
   );
